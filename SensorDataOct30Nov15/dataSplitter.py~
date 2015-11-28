@@ -1,0 +1,10 @@
+# Filename: dataSplitter.py
+# Name: Eliasar Gandara
+# Date: 24 November 2015
+# Description: Will extract the data that the new probe created.
+# It will split apart the date, time, temperature, and disolved oxygen readings.
+
+import csv
+
+
+reader = csv.reader("SensorDataNov14.csv");

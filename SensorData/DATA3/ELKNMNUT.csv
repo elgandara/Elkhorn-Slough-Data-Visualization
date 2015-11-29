@@ -1,0 +1,48 @@
+Station_Code,isSWMP,m/d/y hh:mm,Collection Method See Legend,Replicate See Legend,See Legend, See Legend,See Legend,mg/L,Flag Code,mg/L,Flag Code,mg/L,Flag Code,mg/L,Flag Code,mg/L,Flag Code,ug/L,Flag Code
+********LEGEND FOR FIELD NAMES LOCATED AT BOTTOM OF FILE************
+"Station_Code","isSWMP","DateTimeStamp","CollMethd","REP","Historical","ProvisionalPlus","F_Record","PO4F","F_PO4F","NH4F","F_NH4F","NO2F","F_NO2F","NO3F","F_NO3F","NO23F","F_NO23F","CHLA_N","F_CHLA_N",
+ 
+********Legend*******
+
+ The best available dataset does not include values where the flag code is <0 (data outside sensor limits; rejected data; missing data; and optional SWMP
+ supported data that were not collected).  If you wish to export all this data... you must choose the All Inclusive Data button.  
+
+Please refer to the Read Me document bundled in the ZIP file for important information regarding data QAQC and data file contents.  A
+metadata document will also be available detailing specific Reserve and station data collection methods; QAQC; and contact information.
+
+---INFO ON FIELDS---
+Collection method: A value of 1 represents grab sample collection - a value of 2 represents the diel auto-sampling program
+Replicate: Refers to the sequential replicate number or a value of S indicates a laboratory split
+PO4F: orthophosphate measured in milligrams per Liter (mg/L) as P 
+NH4F: ammonium measured in milligrams per Liter (mg/L) as N
+NO2F: nitrite measured in milligrams per Liter (mg/L) as N
+NO3F: nitrate measured in milligrams per Liter (mg/L) as N
+NO23F: nitrite + nitrate measured in milligrams per Liter (mg/L) as N
+CHLA_N: chlorophyll a measured in micrograms per Liter (ug/L)
+
+Provisional Plus: A value of 0 in the provisional plus column indicates that the data have been through the automated flagging process (primary QAQC) ONLY and has not been checked by the Reserve.
+  While a value of 1 in the provisional plus column indicates that the data have been through secondary QAQC at the Reserve using Excel macros (provided by the CDMO) to further QAQC the data.
+
+Historical: A value of 0 in the historical column indicates that the data have not been through final QAQC by the CDMO. A value of 1 indicates that the data have been through
+ final tertiary review at the CDMO and posted as the final authoritative data. 
+
+isSWMP:  A value of P indicates that this is a primary SWMP station and will ultimately go through tertiary review by the CDMO.  A value of S indicates that this is a secondary SWMP station. 
+Secondary SWMP stations must follow all SWMP SOPs but do not go through tertiary review.
+
+---FLAG CODES---
+
+Each SWMP required parameter in the dataset is followed by a flag column (where the parameter header is preceded by a F_).  Flag values are defined as:   
+
+-5         Outside High Sensor Range
+-4         Outside Low Sensor Range
+-3         Data Rejected due to QAQC
+-2         Missing Data
+-1         Optional SWMP supported parameter
+ 0         Passed Initial QAQC Checks
+ 1         Suspect Data
+ 2         Open - reserved for later flag
+ 3         Open - reserved for later flag
+ 4         Historical Data:  Pre-Auto QAQC
+ 5         Corrected Data
+
+

@@ -14,12 +14,19 @@ oldSensor = pd.read_csv("oldSensorOct31ToNov14.csv")
 # The format that the date is formatted in the csv files
 date_format = "%Y/%m/%d %H:%M"
 
-# Create a "datetime" column that will contain a datetime object to be used in graphing the data sequentially based on the date and time
-newSensor["datetime"] = newSensor["DateTime"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
-oldSensor["datetime"] = oldSensor["DateTime"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
+# Create a new dataframe that contains both of the sensor's data'
+frames = [newSensor, oldSensor]
+bothSensors = pd.concat(frames)
 
-# Set the x and y label values of the graph
-plt.xlabel("Time")
-plt.ylabel("Values")
+# Make the index of the bothSensors dataframe equal to a datetime object
+bothSensors.index = bothSensors["DateTime"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
 
-#plt.show()
+groups = bothSensors.groupby("Sensor")
+
+for key, group in groups:
+    group.plot(x="Sensor")
+
+plt.legend(loc="best")
+
+# Display the plot
+plt.show()

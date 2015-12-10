@@ -17,14 +17,14 @@ new_data = []
 startDate = datetime.date(2015,10,31)
 endDate = datetime.date(2015,11,14)
 
-writer.writerow(["DateTime", "D.O.", "Temp", "Sensor"])
+writer.writerow(["Date", "D.O.", "Temp"])
 for row in reader:
     # Split the data in the first column
     data = row[0].split()
 
     # Add the relevent data to the the new_data list
     # and then write the row to the new csvfile
-    new_data.extend( [ data[0] + " " + data[1][0:5], data[3], data[5], "New" ] )
+    new_data.extend( [ data[0] + " " + data[1][0:5], data[3], data[5]] )
     date = datetime.date(int(data[0][0:4]), int(data[0][5:7]), int(data[0][8:]))
 
     # Will add the row to the csv file if the data is from the appropriate date range

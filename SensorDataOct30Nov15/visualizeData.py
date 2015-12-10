@@ -15,16 +15,22 @@ oldSensor = pd.read_csv("oldSensorOct31ToNov14.csv")
 date_format = "%Y/%m/%d %H:%M"
 
 # Create a new dataframe that contains both of the sensor's data'
-frames = [newSensor, oldSensor]
-bothSensors = pd.concat(frames)
+#frames = [newSensor, oldSensor]
+#bothSensors = pd.concat(frames)
 
 # Make the index of the bothSensors dataframe equal to a datetime object
-bothSensors.index = bothSensors["DateTime"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
+#bothSensors.index = bothSensors["Date"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
 
-groups = bothSensors.groupby("Sensor")
+newSensor.index = newSensor["Date"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
+oldSensor.index = oldSensor["Date"].apply(lambda x: datetime.datetime.strptime(x, date_format) )
 
-for key, group in groups:
-    group.plot(x="Sensor")
+#groups = bothSensors.groupby("Sensor")
+
+#for key, group in groups:
+    #group.plot()
+
+newSensor.plot();
+oldSensor.plot();
 
 plt.legend(loc="best")
 

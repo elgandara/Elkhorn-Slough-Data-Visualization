@@ -18,7 +18,7 @@ new_data = []
 startDate = datetime.date(2015,10,31)
 endDate = datetime.date(2015,11,14)
 
-writer.writerow(["DateTime", "D.O.", "Temp", "Sensor"])
+writer.writerow(["Date", "D.O.", "Temp"])
 
 for row in reader:
 
@@ -32,7 +32,7 @@ for row in reader:
             date = datetime.date(int(data[0][6:]), int(data[0][:2]), int(data[0][3:5]))
             date_str = date.strftime("%Y/%m/%d")
 
-            new_data.extend( [date_str + " " + data[1], row[12], row[6], "Old" ] )
+            new_data.extend( [date_str + " " + data[1], row[12], row[6]] )
 
             # Will add the row to the csv file if the data is from the appropriate date range
             if (startDate <= date <= endDate):
